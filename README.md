@@ -4,21 +4,21 @@ An R function written to perform temporal trend analysis on contaminants data.
 
 ## Statistical Analysis:
 
-The temporal trends are analyzed using a robust regression approach to detect trends, based on the work of Nicolson et al. 1998 and on the methods used in the PIA computer application developed by Anders Bignert and co-workers [AMAP](https://www.amap.no/documents/doc/pia-application-version-051113/1026).[^fn1],[^fn2] In short, the median concentration was used as a yearly contaminant index value, the median was used as it is less influenced by censored data i.e. concentrations below the limit of quantification (>LOQ) and possible outliers. The total variation over time was analyzed using both a linear and non-linear component, while the latest 10 year of data were analyzed by a linear component only. A log-linear regression analysis was used to describe the linear component and a three-year running mean smoother was used to describe the non-linear component. These two component were tested by means of an ANOVA.[^fn1]
+The temporal trends are analyzed using a robust regression approach to detect trends, based on the work of Nicolson et al. 1998 and on the methods used in the PIA computer application developed by Anders Bignert and co-workers [AMAP](https://www.amap.no/documents/doc/pia-application-version-051113/1026).[^1],[^2] In short, the median concentration was used as a yearly contaminant index value, the median was used as it is less influenced by censored data i.e. concentrations below the limit of quantification (>LOQ) and possible outliers. The total variation over time was analyzed using both a linear and non-linear component, while the latest 10 year of data were analyzed by a linear component only. A log-linear regression analysis was used to describe the linear component and a three-year running mean smoother was used to describe the non-linear component. These two component were tested by means of an ANOVA.[^1]
 
-All statistical trend analyses were performed in R version 3.4.2.[^fn3] A script was written for the temporal trend analysis, allowing quick analysis of multiple contaminants at once (see supplementary data for the r script), the script utilizes a number of r packages. The tidyverse package is used for data wrangling and plotting.[^fn4] The zoo package is used for the running mean smoother.[^fn5] To calculate the medians when the concentrations include censored data the regression on order statistics (ROS) method is used,[^fn6],[^fn7] which is implemented in the NADA package.[^fn8] To calculate the 95 % confidence intervals (CI) of the medians the bootstrap method from the boot package is used.[^fn9],[^fn10] The Mann-Kendall trend test is from the Kendall package.[^fn11]
+All statistical trend analyses were performed in R version 3.4.2.[^3] A script was written for the temporal trend analysis, allowing quick analysis of multiple contaminants at once (see supplementary data for the r script), the script utilizes a number of r packages. The tidyverse package is used for data wrangling and plotting.[^fn4] The zoo package is used for the running mean smoother.[^5] To calculate the medians when the concentrations include censored data the regression on order statistics (ROS) method is used,[^fn6],[^7] which is implemented in the NADA package.[^8] To calculate the 95 % confidence intervals (CI) of the medians the bootstrap method from the boot package is used.[^9],[^10] The Mann-Kendall trend test is from the Kendall package.[^11]
 
-[^fn1]: Techniques, I.; Marine, I. N.; Sciences, E.; Nicholson, M. D.; Fryer, R. J.; Larsen, J. R. Temporal Trend Monitoring: Robust Method for Analysing Contaminant Trend Monitoring Data; 1998.
-[^fn2]: Bignert, A. PIA Statistical Application Developed for Use by the Arctic Monitoring and Assessment Programme; 2016.
-[^fn3]: Team, R. C. R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing: Vienna, Austria 2017.
-[^fn4]: Wickham, H. Tidyverse: Easily Install and Load the “Tidyverse.” 2017.
-[^fn5]: Zeileis, A.; Grothendieck, G. Zoo: S3 Infrastructure for Regular and Irregular Time Series. J. Stat. Softw. 2005, 14 (5), 1–27.
-[^fn6]: Helsel, D. R. Statistics for Censored Environmental Data Using Minitab® and R: Second Edition; 2011.
-[^fn7]: Annan, S. Y. Comparison of the Kaplan-Meier, Maxilllum Likelihood, and ROS Estimators for Left-Censored Data Using Simulation Studies. 2009, 1–9.
-[^fn8]: Lee, L. NADA: Nondetects and Data Analysis for Environmental Data. 2017.
-[^fn9]: Canty, A.; Ripley, B. Boot: Bootstrap R (S-Plus) Functions. 2017.
-[^fn10]: Davidson, A. C.; Hinkley, D. V. Bootstrap Methods and Their Applications; Cambridge University Press: Cambridge, 1997.
-[^fn11]: McLeod, A. I. Kendall: Kendall Rank Correlation and Mann-Kendall Trend Test. 2011.
+[^1]: Techniques, I.; Marine, I. N.; Sciences, E.; Nicholson, M. D.; Fryer, R. J.; Larsen, J. R. Temporal Trend Monitoring: Robust Method for Analysing Contaminant Trend Monitoring Data; 1998.
+[^2]: Bignert, A. PIA Statistical Application Developed for Use by the Arctic Monitoring and Assessment Programme; 2016.
+[^3]: Team, R. C. R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing: Vienna, Austria 2017.
+[^4]: Wickham, H. Tidyverse: Easily Install and Load the “Tidyverse.” 2017.
+[^5]: Zeileis, A.; Grothendieck, G. Zoo: S3 Infrastructure for Regular and Irregular Time Series. J. Stat. Softw. 2005, 14 (5), 1–27.
+[^6]: Helsel, D. R. Statistics for Censored Environmental Data Using Minitab® and R: Second Edition; 2011.
+[^7]: Annan, S. Y. Comparison of the Kaplan-Meier, Maxilllum Likelihood, and ROS Estimators for Left-Censored Data Using Simulation Studies. 2009, 1–9.
+[^8]: Lee, L. NADA: Nondetects and Data Analysis for Environmental Data. 2017.
+[^9]: Canty, A.; Ripley, B. Boot: Bootstrap R (S-Plus) Functions. 2017.
+[^10]: Davidson, A. C.; Hinkley, D. V. Bootstrap Methods and Their Applications; Cambridge University Press: Cambridge, 1997.
+[^11]: McLeod, A. I. Kendall: Kendall Rank Correlation and Mann-Kendall Trend Test. 2011.
 
 ## The function tacont() has the variables:
 
@@ -39,14 +39,3 @@ All statistical trend analyses were performed in R version 3.4.2.[^fn3] A script
 4. log-linear regression model for the last 10 years of the dataset
 
 # References
-(28) 	Techniques, I.; Marine, I. N.; Sciences, E.; Nicholson, M. D.; Fryer, R. J.; Larsen, J. R. Temporal Trend Monitoring: Robust Method for Analysing Contaminant Trend Monitoring Data; 1998.
-(29) 	Bignert, A. PIA Statistical Application Developed for Use by the Arctic Monitoring and Assessment Programme; 2016.
-(30) 	Team, R. C. R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing: Vienna, Austria 2017.
-(31) 	Wickham, H. Tidyverse: Easily Install and Load the “Tidyverse.” 2017.
-(32) 	Zeileis, A.; Grothendieck, G. Zoo: S3 Infrastructure for Regular and Irregular Time Series. J. Stat. Softw. 2005, 14 (5), 1–27.
-(33) 	Helsel, D. R. Statistics for Censored Environmental Data Using Minitab® and R: Second Edition; 2011.
-(34) 	Annan, S. Y. Comparison of the Kaplan-Meier, Maxilllum Likelihood, and ROS Estimators for Left-Censored Data Using Simulation Studies. 2009, 1–9.
-(35) 	Lee, L. NADA: Nondetects and Data Analysis for Environmental Data. 2017.
-(36) 	Canty, A.; Ripley, B. Boot: Bootstrap R (S-Plus) Functions. 2017.
-(37) 	Davidson, A. C.; Hinkley, D. V. Bootstrap Methods and Their Applications; Cambridge University Press: Cambridge, 1997.
-(38) 	McLeod, A. I. Kendall: Kendall Rank Correlation and Mann-Kendall Trend Test. 2011.

@@ -16,7 +16,7 @@ taCont <- function(date, y, censored = NULL, plot=TRUE, pub=TRUE, palmost=TRUE,
                    cenPerc = NULL, onlyRes=FALSE)
 ```
 
-* **date** is given as date or year
+* **date** is given as date or year (ONLY works for year at the moment!!!)
 * **y** is either the contaminant, stable isotope or biometric value
 * **censored** is a logical vector (TRUE/FALSE) stating if y is censored or not. TRUE means that the y is censored i.e. <LOQ
 * **plot** TRUE/FALSE, TRUE by default.
@@ -31,6 +31,10 @@ taCont <- function(date, y, censored = NULL, plot=TRUE, pub=TRUE, palmost=TRUE,
 2. data.frame with key results
 3. log-linear regression model for the whole dataset
 4. log-linear regression model for the last 10 years of the dataset
+
+### example of resulting plot
+<img src="images/demoplot.png" width="400">
+
 
 # References
 

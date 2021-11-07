@@ -7,4 +7,4 @@ ylab <- df$contaminant %>% unique()
 results <- taCont(df$sampling_year, y = df$measval_num_calc, censored = df$measval_cen_calc)
 
 results[[1]] + ylab(ylab)
-ggsave("images/demoplot.png", width = 4, height = 6)
+#ggsave("images/demoplot.png", width = 4, height = 6)
